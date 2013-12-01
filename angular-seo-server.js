@@ -35,8 +35,8 @@ var renderHtml = function(url, cb) {
 server.listen(port, function (request, response) {
     var url = request.url;
     var route = url.replace("?_escaped_fragment_=","#");
-    
-    renderHtml('http://' + request.headers.Host + route, function(html) {
+
+    renderHtml(system.args[2] + route, function(html) {
         response.statusCode = 200;
         response.write(html);
         response.close();
